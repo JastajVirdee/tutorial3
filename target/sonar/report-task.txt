@@ -2,5 +2,5 @@ projectKey=com.mcgill.ca.tutorial3:tutorial3
 serverUrl=http://localhost:9000
 serverVersion=7.3.0.15553
 dashboardUrl=http://localhost:9000/dashboard?id=com.mcgill.ca.tutorial3%3Atutorial3
-ceTaskId=AWYmNsOC0J2CnHVXPFWe
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWYmNsOC0J2CnHVXPFWe
+ceTaskId=AWYmUIcA0J2CnHVXPFWf
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWYmUIcA0J2CnHVXPFWf
