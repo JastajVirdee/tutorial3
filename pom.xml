@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mcgill.ca.tutorial3</groupId>
+  <artifactId>tutorial3</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>tutorial3</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+	<artifactId>sonar-maven-plugin</artifactId>
+	<version>3.5.0.1254</version>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <!-- Optional URL to server. Default value is http://localhost:9000 -->
+	<sonar.host.url>
+	  http://localhost:9000
+	</sonar.host.url>
+      </properties>
+    </profile>
+    <profile>
+<id>sonar-coverage</id>
+<activation>
+<activeByDefault>true</activeByDefault>
+</activation>
+<build>
+<pluginManagement>
+  <plugins>
+    <plugin>
+      <groupId>org.jacoco</groupId>
+      <artifactId>jacoco-maven-plugin</artifactId>
+      <version>0.7.8</version>
+    </plugin>
+  </plugins>
+</pluginManagement>
+<plugins>
+  <plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <configuration>
+      <append>true</append>
+    </configuration>
+    <executions>
+      <execution>
+	<id>agent-for-ut</id>
+	<goals>
+	  <goal>prepare-agent</goal>
+	</goals>
+      </execution>
+      <execution>
+	<id>jacoco-site</id>
+	<phase>verify</phase>
+	<goals>
+	  <goal>report</goal>
+	</goals>
+      </execution>
+    </executions>
+  </plugin>
+  </plugins>
+  </build>
+</profile> 
+  </profiles>
+</project>
